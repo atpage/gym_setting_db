@@ -27,7 +27,7 @@ from sqlalchemy.orm import sessionmaker, relationship
 # import os
 # import sys
 # sys.path.append( os.path.dirname(os.path.abspath(__file__)) )
-from secrets import db_url
+from .secrets import db_url
 
 Base = declarative_base()
 
