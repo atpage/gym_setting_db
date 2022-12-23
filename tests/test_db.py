@@ -10,11 +10,11 @@ class TestQardioDataset(unittest.TestCase):
 
     def test_creating_tables(self):
         create_tables()
-        #self.assertTrue( ... )
-        
+        # self.assertTrue( ... )
+
     def test_querying_table(self):
         results = self.session.query(Color).all()
-        #self.assertTrue( ... )
+        # self.assertTrue( ... )
 
 
 if __name__ == '__main__':

@@ -166,11 +166,15 @@ def create_tables(drop_first=False):
     Base.metadata.create_all(engine)
 
 
-def populate_tables(drop_first=False):
+def populate_tables():
 
-    populate_table_from_csv(os.path.join(src_path,'data','colors.csv'), 'colors')
-    populate_table_from_csv(os.path.join(src_path,'data','boulder_grades.csv'), 'valid_boulder_grades')
-    populate_table_from_csv(os.path.join(src_path,'data','rope_grades.csv'), 'valid_rope_grades')
+    populate_table_from_csv(os.path.join(src_path, 'data', 'colors.csv'), 'colors')
+    populate_table_from_csv(
+        os.path.join(src_path, 'data', 'boulder_grades.csv'), 'valid_boulder_grades'
+    )
+    populate_table_from_csv(
+        os.path.join(src_path, 'data', 'rope_grades.csv'), 'valid_rope_grades'
+    )
 
 
 def populate_table_from_csv(csvfile, tablename, engine=None):
