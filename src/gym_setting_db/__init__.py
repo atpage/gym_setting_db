@@ -24,10 +24,12 @@ from sqlalchemy import (
 from sqlalchemy.ext.declarative import declarative_base, declared_attr
 from sqlalchemy.orm import sessionmaker, relationship
 
-# import os
-# import sys
-# sys.path.append( os.path.dirname(os.path.abspath(__file__)) )
+import os
 from .secrets import db_url
+
+import importlib.resources
+
+src_path = importlib.resources.files('gym_setting_db')
 
 Base = declarative_base()
 
@@ -165,9 +167,10 @@ def create_tables(drop_first=False):
 
 
 def populate_tables(drop_first=False):
-    populate_table_from_csv('colors.csv', 'colors')
-    populate_table_from_csv('boulder_grades.csv', 'valid_boulder_grades')
-    populate_table_from_csv('rope_grades.csv', 'valid_rope_grades')
+
+    populate_table_from_csv(os.path.join(src_path,'data','colors.csv'), 'colors')
+    populate_table_from_csv(os.path.join(src_path,'data','boulder_grades.csv'), 'valid_boulder_grades')
+    populate_table_from_csv(os.path.join(src_path,'data','rope_grades.csv'), 'valid_rope_grades')
 
 
 def populate_table_from_csv(csvfile, tablename, engine=None):
