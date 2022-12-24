@@ -1,4 +1,7 @@
 import sqlite3
+import warnings
+import os
+import importlib.resources
 
 import pandas as pd
 
@@ -24,10 +27,15 @@ from sqlalchemy import (
 from sqlalchemy.ext.declarative import declarative_base, declared_attr
 from sqlalchemy.orm import sessionmaker, relationship
 
-import os
-from .secrets import db_url
+# from .secrets import db_url
+try:
+    db_url = os.environ['DB_URL']
+except KeyError:
+    warnings.warn(
+        "DB_URL not specified; defaulting to routes.db (sqlite) in current directory."
+    )
+    db_url = 'sqlite:///routes.db'
 
-import importlib.resources
 
 src_path = importlib.resources.files('gym_setting_db')
 

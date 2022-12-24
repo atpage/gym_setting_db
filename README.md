@@ -6,15 +6,13 @@ The main intent is to allow setters to propose grades for a new set, and climber
 
 ## Usage
 
-Set up `secrets.py` with the url to your database.  An example is provided:
+Ensure DB_URL is set in your environment variables.  e.g.:
 
-    db_url = 'sqlite:///routes.db'
+    $ export DB_URL='sqlite3:///tmp/routes.db'
     
-But you will likely change this to something such as:
+For postgres, the value might look like:
 
-    db_url = "postgresql://%s:%s@%s:%d/%s?sslmode=require" % (USERNAME, PASSWORD, HOST, 5432, DATABASE)
-
-(In the future, we might use environment variables to get DB settings, instead of the `secrets` file.)
+    postgresql://USERNAME:PASSWORD@HOST:5432/DATABASE?sslmode=require
 
 Once the package is working, a couple of basic functions can get you started:
 * `create_tables()` will create the schema in the DB (but only what doesn't exist).
