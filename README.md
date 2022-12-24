@@ -8,7 +8,7 @@ The main intent is to allow setters to propose grades for a new set, and climber
 
 Ensure DB_URL is set in your environment variables.  e.g.:
 
-    $ export DB_URL='sqlite:///tmp/routes.db'
+    $ export DB_URL='sqlite:////tmp/routes.db'
     
 For postgres, the value might look like:
 
