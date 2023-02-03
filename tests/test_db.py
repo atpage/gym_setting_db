@@ -3,7 +3,7 @@ import unittest
 from gym_setting_db import get_engine, get_session, create_tables, Color
 
 
-class TestQardioDataset(unittest.TestCase):
+class TestGymDB(unittest.TestCase):
     def setUp(self):
         self.engine = get_engine()
         self.session = get_session(engine=self.engine)
